@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11</title>
+</head>
+
+<body>
+    <select id="slt_tabuada">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <div>
+        <label for="">Digite ate onde vai esse limite</label>
+        <input type="text" id="ipt_limite">
+        <button onclick="calcular()">
+            Calcular
+        </button>
+    </div>
+    <br>
+    <div id="resultado">
+
+    </div>
+</body>
+
+<script>
+    function calcular() {
+        let tabuada = Number(slt_tabuada.value);
+        let limite = Number(ipt_limite.value);
+        resultado.innerHTML = "";
+
+        for (let i = 0; i <= limite; i++) {
+            let cor = (i % 2 == 0) ? "blue" : "red";
+
+            resultado.innerHTML += 
+            `<p style="color:${cor}">
+            ${tabuada} x ${i} = ${tabuada * i}
+            </p>`;
+        }
+    }
+</script>
+
+</html>

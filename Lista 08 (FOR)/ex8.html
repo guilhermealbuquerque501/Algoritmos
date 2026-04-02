@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8</title>
+</head>
+<body>
+    <div>
+        <label for="ipt_num">Digite a quantidade de vezes que esse texto deve aparecer</label>
+        <input type="text" id="ipt_num">
+        <label for="ipt_texto">Digite um texto</label>
+        <input type="text" id="ipt_texto">
+        <button onclick="quantificar()"> Papagaio</button>
+    </div>
+    <br>
+    <div id="resultado">
+
+    </div>
+</body>
+
+<script>
+    function quantificar() {
+        resultado.innerHTML = "";
+        let vezes_texto = Number(ipt_num.value);
+        let texto = ipt_texto.value;
+
+        for (let i = 0; i < vezes_texto; i++) {
+            resultado.innerHTML += `A frase: ${texto} está sendo exibida pela ${i + 1} <br>`;
+            
+        }
+    }
+</script>
+
+</html>

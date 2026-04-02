@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10</title>
+</head>
+<body>
+    <div>
+        <label for="">Digite Quantas voltas o carro vai dar nessa corrida: </label>
+        <input type="text" id="ipt_voltas">
+        <button onclick="correr()">
+            Iniciar corrida!
+        </button>
+    </div>
+    <div id="resultado">
+
+    </div>
+</body>
+
+<script>
+    function correr() {
+        let voltas_carro = Number(ipt_voltas.value);
+
+        for (let i = 0; i <= voltas_carro; i++) {
+           resultado.innerHTML += `Carro dando a ${i} volta <br>`;  
+
+        }
+        resultado.innerHTML += `<br> Corrida finalizada!`;  
+    }
+</script>
+
+</html>
