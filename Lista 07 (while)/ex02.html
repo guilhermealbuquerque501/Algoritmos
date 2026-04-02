@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+</head>
+
+<body>
+    <label for="">Digite Quantas Pessoas Vão te carona</label>
+    <input type="text" id="ipt_pessoas">
+    <button onclick="carona()">#Partiu Carona </button>
+    <label for="">Quantidade que o seu veiculo suporta</label>
+    <input type="text" id="ipt_limite_pessoas">
+    <div id="resultado">
+
+    </div>
+</body>
+
+<script>
+    function carona() {
+        let limite_pessoas = ipt_limite_pessoas.value 
+        let qtd_pessoas = ipt_pessoas.value
+        let contador = 0;
+        while (contador < qtd_pessoas) {
+            if (contador == 0) {
+                resultado.innerHTML += `Entrou o ${contador + 1}º passageiro (que é o(a) motorista) <br>`;
+            }
+            else if(contador < limite_pessoas){
+                resultado.innerHTML += `Entrou o ${contador + 1}º passageiro <br>`;
+            }
+            else {
+               resultado.innerHTML += ` O ${contador + 1}º passageiro terá que esperar! <br>`
+            }
+            contador++
+        }
+    }
+</script>
+
+</html>

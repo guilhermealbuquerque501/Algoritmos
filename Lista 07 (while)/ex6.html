@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 6</title>
+</head>
+
+<body>
+    <div>
+        <span>Digite quantas xicaras de café com leite você tome</span>
+        <input type="text" id="ipt_quantidade">
+        <button onclick="calcular()">
+            Ver a quantidade
+        </button>
+    </div>
+    <br>
+    <div id="id_resultado">
+        
+    </div>
+</body>
+
+<script>
+    function calcular() {
+        
+        let quantidade_café = Number(ipt_quantidade.value)
+        let contador = 0
+        while (contador < quantidade_café){
+            id_resultado.innerHTML += `<img src="./images/leite_po.png" alt="xicara_cafe">`;
+            id_resultado.innerHTML += `<img src="./images/xicara.png" alt="xicara_cafe">`;
+
+            id_resultado.innerHTML += `<img src="./images/leite_po.png" alt="leite em po">`;
+
+            contador++
+        }
+    }
+</script>
+
+</html>

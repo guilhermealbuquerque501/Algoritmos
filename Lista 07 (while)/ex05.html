@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 5</title>
+</head>
+<style>
+    
+</style>
+
+<body>
+    <div>
+        <span>
+            Quantas Coca-Cola você acha que já tomou:
+        </span>
+        <input type="text" id="ipt_qtd_coca">
+        <button onclick="calcular()">
+            Ver a quantidade
+        </button>
+    </div>
+    <div id="id_resultado">
+    </div>
+</body>
+
+<script>
+    function calcular() {
+        let quantidade = Number(ipt_qtd_coca.value);
+        let contador = 0;
+        while (contador < quantidade){
+            
+            id_resultado.innerHTML += `<img src="https://cdn-icons-png.flaticon.com/512/2719/2719313.png" alt="coca-cola">`;
+
+            contador ++
+        }
+    }
+</script>
+
+</html>

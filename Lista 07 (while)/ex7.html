@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 7</title>
+</head>
+<body>
+
+    <div>
+        <span>informe a quantidade de depositos que você faz</span>
+        <input type="text" id="ipt_qtd_deposito">
+        <span> quanto dinheiro você deposita </span>
+        <input type="text" id="ipt_deposito">
+        <button onclick="acompanhar()">
+            Acompanhar grana
+        </button>
+    </div>
+    <br>
+    <div id="id_resultado">
+
+    </div>
+  
+    <script>
+        function acompanhar() {
+        let qtd_deposito = Number(ipt_qtd_deposito.value);
+        let deposito = Number(ipt_deposito.value);
+        let contador = 0
+        qtd_deposito_vezes = 0
+
+        while(contador < qtd_deposito){
+            
+            
+            qtd_deposito_vezes ++
+
+            id_resultado.innerHTML +=`${contador + 1}º Mês: R$${deposito * (qtd_deposito_vezes)} <br> <br>`;
+
+            contador++
+        }
+        }
+
+    </script>
+</body>
+</html> 
