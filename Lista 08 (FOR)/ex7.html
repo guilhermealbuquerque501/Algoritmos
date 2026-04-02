@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Dite um número de 0 á 200</label>
+        <input type="text" id="ipt_contador">
+        <button onclick="contar()">
+            Adoro múltiplos de 7
+        </button>
+    </div>
+    <div id="resultado">
+
+    </div>
+</body>
+<script>
+    function contar() {
+        numero = Number(ipt_contador.value);
+        resultado.innerHTML = "";
+
+        if (numero >= 0 && numero <= 200) {
+            for (let i = 0; i <= numero; i++) {
+                if (i % 7 == 0) {
+                    resultado.innerHTML += `numero divisivel por 7: ${i} <br>`;
+                }
+
+            }
+        }   
+        else {
+            resultado.innerHTML += "<br>Digite um número válido"; 
+        }
+    }
+</script>
+</html>
