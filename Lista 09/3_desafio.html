@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Desafio</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Digite o Texto que quer conferir se é um palindromo: </label>
+        <input type="text" id="ipt_texto">
+        <button onclick="inverter()">Inverter</button>
+    </div>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+function inverter() {
+    id_resultado.innerHTML = "";
+
+    let texto = ipt_texto.value
+        .toLowerCase()
+        .replace(/ /g, ""); 
+
+    let novo_texto = "";
+
+    for (let i = texto.length - 1; i >= 0; i--) {
+        novo_texto += texto[i];
+    }
+    texto = novo_texto
+
+    if (texto === novo_texto) {
+        id_resultado.innerHTML = `${texto} é um palíndromo!`;
+    } else {
+        id_resultado.innerHTML = "Não é um palíndromo";
+    }
+}
+</script>
+
+</html>

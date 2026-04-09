@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio sem função pronta</title>
+</head>
+
+<body>
+    <div>
+        <label for="ipt_cadastrar">Digite o que vc quer cadastrar no vetor: </label>
+        <input type="text" id="ipt_cadastrar" placeholder="cadastre">
+        <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+    <hr>
+    <div>
+        <button onclick="exibir_duplicatas()">
+            Exibir duplicatas
+        </button>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <hr>
+    <div>
+        <button onclick="remover_duplicar()">
+            remover duplicatas
+        </button>
+    </div>
+    <br>
+    <br>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+
+
+<script>
+    let lista = [];
+    let resultado = "";
+    let item;
+    let contador;
+
+
+
+    function cadastrar() {
+
+        let item = ipt_cadastrar.value.trim().toLowerCase();
+
+        // validar
+        if (!item) {
+            resultado = "Digite algum valor para funcionar <br>";
+        } else {
+            lista.push(item);
+            resultado = lista.join("; <br>");
+        }
+
+        id_resultado.innerHTML = resultado;
+    }
+
+    function exibir_duplicatas() {
+        let resultado = "";
+        let lista_aux = [];
+        let existe = false;
+        let contador = 0;
+
+        for (let i = 0; i < lista.length; i++) {
+
+            contador = 0;
+
+
+            for (let j = 0; j < lista.length; j++) {
+
+                if (lista[i] == lista[j]) {
+
+                    contador++;
+
+                }
+            }
+            for (let k = 0; k < lista_aux.length; k++) {
+
+                if (lista_aux[k] == lista[i]) {
+
+                    existe = true;
+
+                }
+            }
+
+            // se aparecer mais de 1 vez, é duplicado
+            if (contador > 1 && !existe) {
+                resultado += `${lista[i]} <br>`;
+                lista_aux.push(lista[i]);
+            }
+            console.log(lista);
+            
+        }
+        
+
+        id_resultado.innerHTML = resultado;
+    }
+
+    function remover_duplicar() {
+        let resultado = "";
+        let lista_aux = [];
+        let existe = false;
+        let contador = 0;
+
+        for (let i = 0; i < lista.length; i++) {
+
+            contador = 0;
+
+
+            for (let j = 0; j < lista.length; j++) {
+
+                if (lista[i] == lista[j]) {
+
+                    contador++;
+
+                }
+            }
+            for (let k = 0; k < lista_aux.length; k++) {
+
+                if (lista_aux[k] == lista[i]) {
+
+                    existe = true;
+
+                }
+            }
+
+            // se aparecer mais de 1 vez, é duplicado
+            if (contador > 1 && !existe) {
+                lista_aux.push(lista[i]);
+                resultado += `${lista[i]} <br>`;
+            }
+        }
+        lista = lista_aux;
+
+        id_resultado.innerHTML = resultado;
+
+    }
+</script>
+
+</html>

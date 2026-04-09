@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <div>
+        <label for="ipt_cadastrar">Digite o que vc quer cadastrar no vetor: </label>
+        <input type="text" id="ipt_cadastrar" placeholder="cadastre">
+        <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+    <hr>
+    <div>
+        <button onclick="exibir_duplicatas()">
+            Exibir duplicatas
+        </button>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <hr>
+    <div>
+        <button onclick="remover_duplicar()">
+            remover duplicatas
+        </button>
+    </div>
+    <br>
+    <br>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+
+
+<script>
+    let lista = [];
+    let resultado = "";
+    let item;
+    let contador;
+
+
+
+    function cadastrar() {
+
+        let item = ipt_cadastrar.value
+        .trim()
+        .toLowerCase();
+
+        // validar
+        if (!item) {
+            resultado = "Digite algum valor para funcionar <br>";
+        } else {
+            lista.push(item);
+            resultado = lista.join("; <br>");
+        }
+
+        id_resultado.innerHTML = resultado;
+    }
+
+    function exibir_duplicatas() {
+        contador = 0;
+        for (let i = 0; i < lista.length; i++) {
+
+            if (lista.includes(lista[i])) {
+                contador++;
+            }
+            if (contador == 2) {
+                resultado += `${lista[i]}`;
+                contador = 0;
+            }
+
+        }
+        id_resultado.innerHTML = resultado;
+    }
+
+    function remover_duplicar() {
+        let lista_aux = [];
+
+        for (let i = 0; i < lista.length; i++) {
+
+            if (!lista_aux.includes(lista[i])) {
+
+                lista_aux.push(lista[i]);
+
+            }
+
+        }
+
+        lista.push(lista_aux);
+        console.log(`${lista}`);
+
+
+        let resultado = lista_aux.join("; ");
+        id_resultado.innerHTML = resultado;
+
+        console.log(lista_aux);
+    }
+</script>
+
+</html>
