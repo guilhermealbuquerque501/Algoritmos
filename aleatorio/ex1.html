@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1 </title>
+</head>
+
+<body>
+    <div>
+        <button onclick="sortear()">
+            Sortear
+        </button>
+    </div>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+    function sortear() {
+        id_resultado.innerHTML = "";
+        let num1 = Math.random();
+
+        if (num1 > 0.5) {
+
+            id_resultado.innerHTML = `Eu arredondaria para 1`;
+
+        } else {
+
+            id_resultado.innerHTML = `Eu arredondaria para 0`;
+
+        }
+
+        id_resultado.innerHTML += `<br> <br> ${num1}`;
+    }
+</script>
+
+</html>

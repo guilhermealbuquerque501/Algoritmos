@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD da Dona Matilde</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Digite a antiguidade que quer cadastrar </label>
+        <input type="text" id="ipt_cadastrar">
+        <button onclick="cadastrar()">
+            Cadastrar
+        </button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div>
+        <button onclick="verificar()">
+            Verificar Estoque
+        </button>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <div>
+        <label for="">Digite um item que você quer pesquisar </label>
+        <input type="text" id="ipt_pesquisar">
+        <button onclick="pesquisar()">
+            pesquisar
+        </button>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+    resultado = "";
+    lista = [];
+
+    function cadastrar() {
+        // ---> Declarando Variaveis e Array de apoio; 
+        id_resultado.innerHTML = "";
+        item = ipt_cadastrar.value.trim().toLowerCase();
+
+        lista.push(item);
+
+        resultado += `<br> Comida ${item} adicionada nos itens ${lista}`;
+
+        id_resultado.innerHTML = resultado;
+
+        console.log(lista);
+
+    }
+
+
+
+    function verificar() {
+        // Limpa o resultado na tela
+        id_resultado.innerHTML = "";
+
+        // Verifica cenários com base na quantidade
+        if (lista.length < 3) {
+            resultado = `A loja está quase vazia, precisamos de mais peças raras!`;
+        }
+        else if (lista.length <= 7) {
+            resultado = `Temos algumas peças, mas ainda podemos melhorar o acervo`;
+        }
+        else if (lista.length <= 10) {
+            resultado = `Ótimo! A loja já está bem interessante para os cliente`;
+        }
+        else if (lista.length > 10) {
+            resultado = `Excelente! Nossa loja está cheia de relíquias incríveis!`;
+        }
+
+        id_resultado.innerHTML = resultado;
+    }
+
+    function pesquisar() {
+        id_resultado.innerHTML = "";
+        resultado = "";
+        let contador = 0;
+
+        let item_pesquisa = ipt_pesquisar.value;
+
+        if (lista.includes(item_pesquisa)) {
+
+            for (let i = 0; i < lista.length; i++) {
+
+                if (lista[i] == item_pesquisa) {
+                    contador++;
+                }
+
+            }
+        }
+
+        if (contador > 0) {
+            resultado += `Temos o item ${item_pesquisa} e há ${contador} unidade(s) dele na loja`;
+        } else {
+            resultado += `Não encontramos o item ${item_pesquisa}, talvez seja hora de procurar essa raridade!`;
+        }
+
+
+    }
+
+</script>
+
+</html>

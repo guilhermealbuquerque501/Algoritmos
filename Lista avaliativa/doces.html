@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC2</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Digite a quantidade de Macarons</label>
+        <input type="text" id="ipt_qtd_macaron">
+        <input type="text" id="ipt_valor_macaron" placeholder="Valor Macarons">
+        <br>
+        <br>
+        <label for="">Digite a quantidade de Brigadeiros Gourmets</label>
+        <input type="text" id="ipt_qtd_brigadeiros">
+        <input type="text" id="ipt_valor_brigadeiros" placeholder="Valor Brigadeiros">
+        <br>
+        <br>
+        <label for="">Digite a quantidade de Cupcakes</label>
+        <input type="text" id="ipt_qtd_cupcakes">
+        <input type="text" id="ipt_valor_cupcakes" placeholder="Valor Cupcakes">
+        <br>
+        <br>
+        <label for="">Digite a quantidade de Cheesecakes</label>
+        <input type="text" id="ipt_qtd_cheesecakes">
+        <input type="text" id="ipt_valor_cheesecakes" placeholder="Valor Cheesecakes">
+
+    </div>
+    <hr>
+    <div>
+        <button onclick="verificar()">
+            Verificar Vendas
+        </button>
+    </div>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+    function verificar() {
+        id_resultado.innerHTML = ``;
+        contador_global = 0
+
+        let macaron = Number(ipt_qtd_macaron.value);
+        let vlr_macaron = Number(ipt_valor_macaron.value);
+
+        let brigadeiros = Number(ipt_qtd_brigadeiros.value);
+        let vlr_brigadeiros = Number(ipt_valor_brigadeiros.value);
+
+        let cupcakes = Number(ipt_qtd_cupcakes.value);
+        let vlr_cupcakes = Number(ipt_valor_cupcakes.value);
+
+        let cheesecakes = Number(ipt_qtd_cheesecakes.value);
+        let vlr_cheesecakes = Number(ipt_valor_cheesecakes.value);
+
+        let qtd_doces = cheesecakes + macaron + brigadeiros + cupcakes;
+
+        let img_macaron = `<img src="./macaron.jpeg" alt=""style ="height: 50px;">`;
+        let img_brigadeiro = `<img src="./brigadeiro.png" alt=""style ="height: 50px;">`;
+        let img_cupcake = `<img src="./cupcake.png" alt=""style ="height: 50px;">`;
+        let img_cheesecake = `<img src="./cheesecakes.png" alt=""style ="height: 50px;">`;
+
+        if (macaron < 0 || vlr_macaron < 0 || brigadeiros < 0 || vlr_brigadeiros < 0 || cupcakes < 0 || vlr_cupcakes < 0 || cheesecakes < 0 || vlr_cheesecakes < 0) {
+
+            alert("O resultado é inválido, digite números maiores que 0")
+        }
+
+        else {
+
+            let contador_m = 0
+            let contador_b = 0
+            let contador_cup = 0
+            let contador_ch = 0
+
+            for (let i = 0; i < macaron; i++) {
+                contador_m++
+                contador_global++
+
+                id_resultado.innerHTML += `Venda ${contador_global} - ${img_macaron} - R$${vlr_macaron} <br>`;
+                
+            }
+            for (let i = 0; i < brigadeiros; i++) {
+                contador_b++
+                contador_global++
+
+                id_resultado.innerHTML += `Venda ${contador_global} - ${img_brigadeiro} - R$${vlr_brigadeiros} <br>`;
+            }
+            for (let i = 0; i < cupcakes; i++) {
+                contador_cup++
+                contador_global++
+
+                id_resultado.innerHTML += `Venda ${contador_global} - ${img_cupcake} - R$${vlr_cupcakes} <br>`;
+            }
+            for (let i = 0; i < cheesecakes; i++) {
+                contador_ch++
+                contador_global++
+
+                id_resultado.innerHTML += `Venda ${contador_global} - ${img_cheesecake} - R$${vlr_cheesecakes} <br>`;
+            }
+
+            if (macaron == 0 && brigadeiros == 0 && cupcakes == 0 && cheesecakes == 0) {
+                alert("Você deve comprar uma unidade de algum item descrito")
+            }
+            else {
+                let valor_total = (macaron * vlr_macaron) + (brigadeiros * vlr_brigadeiros) + (cupcakes * vlr_cupcakes) + (cheesecakes * vlr_cheesecakes);
+                id_resultado.innerHTML += `<br>"Com a quantidade de ${macaron} Macarons, ${brigadeiros} Brigadeiros, ${cupcakes} Cupcakes e ${cheesecakes} Cheesecakes, a venda totalizará R$${valor_total}"`;
+            }
+
+        }
+
+    }
+</script>
+
+</html>

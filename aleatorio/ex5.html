@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="jogar()">
+            Jogar
+        </button>
+    </div>
+    <div id="container_body">
+        <div id="id_resultado">
+
+        </div>
+        <div id="id_resultado2">
+            
+        </div>
+    </div>
+        <br>
+        <br>
+        <hr>
+        <div id="id_resultado3">
+            
+        </div>
+</body>
+
+<script>
+            let contador1 = 0;
+        let contador2 = 0;
+    function jogar() {
+        let container = document.getElementById('container_body')
+        container.style.display = 'flex'
+
+        id_resultado.innerHTML = "";
+
+
+
+        let jokenpo = Math.floor( Math.random() * 3);
+        let jokenpo2 = Math.floor( Math.random() * 3);
+
+        if (jokenpo < 1) {
+            if (jokenpo2 < 2) {
+                contador1++
+            }
+            id_resultado.innerHTML = `<img src="./papel.png" alt="">`
+        }
+        else if (jokenpo < 2) {
+            if (jokenpo2 < 3) {
+                contador1++
+            }
+           id_resultado.innerHTML = `<img src="./pedra.png" alt="">` 
+        }
+        else if (jokenpo < 3) {
+            if (jokenpo2 < 1) {
+                contador1++
+            }
+
+            id_resultado.innerHTML = `<img src="./tesoura.png" alt="">` 
+        }
+
+        if (jokenpo2 < 1) {
+            if (jokenpo < 2) {
+                contador2++
+            }
+            id_resultado2.innerHTML = `<img src="./papel.png" alt="">`
+        }
+        else if (jokenpo2 < 2) {
+            if (jokenpo < 3) {
+                contador2++
+            }
+           id_resultado2.innerHTML = `<img src="./pedra.png" alt="">` 
+        }
+        else if (jokenpo2 < 3) {
+            if (jokenpo < 1) {
+                contador2++
+            }
+
+            id_resultado2.innerHTML = `<img src="./tesoura.png" alt="">` 
+        }
+
+        id_resultado3.innerHTML +=  `<br><br><br>As vitorias do primeiro foi ${contador1} e do segundo ${contador2}<br> <br>`;
+    }
+</script>
+
+<style>
+    #container_body{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    #id_resultado{
+        display: flex;
+        width: 200px;
+        height: 100px;
+    }
+    #id_resultado2{
+        display: flex;
+        width: 200px;
+        height: 100px;
+    }
+</style>
+
+</html>

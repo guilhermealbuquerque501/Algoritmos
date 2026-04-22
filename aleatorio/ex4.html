@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+<body>
+    
+    <div>
+        <button onclick="jogar()">
+            Jogar Dado
+        </button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div class="container_body">
+        <h1 id="id_resultado">
+
+        </h1>
+    </div>
+</body>
+
+<script>
+    function jogar() {
+        
+        id_resultado.innerHTML = "";
+        let nota =  Math.random() * 10.0 + 1.0;
+
+        id_resultado.innerHTML += `${nota.toFixed(1)}`;
+
+    }
+</script>
+
+<style>
+
+    .container_body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        height: 100px;
+        width: 100px;
+    }
+    .container_body h1 {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+</style>
+
+</html>

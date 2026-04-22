@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <div>
+        <button onclick="sortear()">
+            Sortear
+        </button>
+    </div>
+    <div id="id_resultado">
+
+        
+    </div>
+</body>
+
+<script>
+    function sortear() {
+        id_resultado.innerHTML = "";
+        let num1 = Math.random();
+
+        let conta = num1 * (5 + 0)
+
+        console.log(num1);
+        
+        console.log(conta);
+
+        
+        if (conta < 1) {
+            
+            id_resultado.innerHTML = `<img src="./Corinthians_simbolo.png" alt="" style="height: 150px; width: 150px;">`
+        }
+        
+        else if (conta < 2) {
+            
+            id_resultado.innerHTML = `<img src="./palmeiras.png" alt="" style="height: 150px; width: 150px;"> `;
+        }
+        
+        else if (conta < 3) {
+            
+            id_resultado.innerHTML = `<img src="./sao_paulo.png" alt="" style="height: 150px; width: 150px;">`;
+
+        }
+
+        else if (conta < 4) {
+            
+            id_resultado.innerHTML = `<img src="./Santos_Logo.png" alt="" style="height: 150px; width: 150px;"> ` ;
+
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    // gera um número de 0 a 1 
+    // onde 0 é inclusivoo, e 1 exclusivo
+    // ou seja, 0 até 0.999999999
+
+    let aleatorio = Math.random();
+
+    console.log(`número Aleatório ${aleatorio} `);
+
+    let min = 3;
+    let max = 7;
+    let aleatorio_teste = 0.999999
+
+    let aleatorio_intervalo = Math.random() * (max - min) + min;
+
+    console.log(`Número leatório com intervalo: ${aleatorio_intervalo}`);
+
+
+
+    let aleatorio_round = Math.round(aleatorio_teste * (max - min + 1) + min);
+
+    let aleatorio_parseInt = parseInt(aleatorio_teste * (max - min + 1) + min);
+
+    console.log(`Número aleatório com intervalo: ${aleatorio_round}`);
+
+    console.log(`Número aleatório com parseInt(${aleatorio_parseInt})`);
+
+    console.log(`E ela terminou comigo falou vitim não presta não sirvo pra romance não to atenção pra ela, então voltei pro meu bailão de glock pentão reserva de pcx no baile de favela de pcx no baile de favelaaaaan`);
+
+    let aleatorio_sorteio = parseInt(aleatorio_teste * (10 - 3 + 1) + 3);
+
+    while (aleatorio_sorteio != 7) {
+        console.log(`Erro, a respota é 7 e o número sorteado foi: ${aleatorio_sorteio}`);
+        aleatorio_sorteio = parseInt(aleatorio_teste * (10 - 3 + 1) + 3);
+
+    }
+
+
+    parseInt(5.2)   
+</script>
+
+</html>
