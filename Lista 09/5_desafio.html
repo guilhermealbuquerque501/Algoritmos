@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <input type="text" id="ipt_texto">
     <button onclick="inverter()">Inverter</button>
 
     <div id="id_resultado"></div>
-    
+
 </body>
 <script>
-    function inverter(){
+    function inverter() {
         let texto = ipt_Texto.value;
         let inverso = "";
         let contador = texto.length - 1;
 
-        for (let i = 0; i < texto.length; i++){
+        for (let i = 0; i < texto.length; i++) {
 
             if ((texto[i] >= 'a' && texto[i] <= 'z') ||
                 (texto[i] >= 'A' && texto[i] <= 'Z') ||
                 (texto[i] >= '0' && texto[i] <= '9')) {
 
-                
+
                 while (!((texto[j] >= 'a' && texto[j] <= 'z') ||
-                         (texto[j] >= 'A' && texto[j] <= 'Z') ||
-                         (texto[j] >= '0' && texto[j] <= '9'))) {
+                    (texto[j] >= 'A' && texto[j] <= 'Z') ||
+                    (texto[j] >= '0' && texto[j] <= '9'))) {
                     contador--;
                 }
 
@@ -35,12 +37,13 @@
                 contador--;
 
             } else {
-    
+
                 inverso += texto[i];
             }
         }
 
-       id_resultado.innerHTML += `Invertido: ${inverso}<br>`;
+        id_resultado.innerHTML += `Invertido: ${inverso}<br>`;
     }
 </script>
+
 </html>

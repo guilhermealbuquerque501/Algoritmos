@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <button onclick="gerar_nota()">Gerar uma nota de aluno entre 0 e 10</button> <br><br>
+    <div id="id_resultado"></div>
+    <br>
+    <br>
+    <hr>
+    <button onclick="gerar_frequencia()">Gerar uma frequência de aluno entre 0 e 100</button> <br><br>
+    <div id="id_resultado2"></div>
+    <br>
+    <br>
+    <hr>
+    <button onclick="situacao()">Ver Situação</button>
 </body>
+
 </html>
+
+<script>
+    let nota
+    let freq
+
+    function gerar_nota() {
+        nota = (Math.random() * (10 - 0) + 0)
+            .toFixed(2);
+
+        id_resultado.innerHTML = `Sua nota é ${nota}`;
+    }
+
+    function gerar_frequencia() {
+        freq = (Math.random() * (100 - 0 + 1) + 0)
+            .toFixed(2);
+
+        id_resultado2.innerHTML = `Sua frequencia é ${freq}`;
+    }
+
+    function situacao() {
+        alert(`Nota: ${nota} - Frequência: ${freq}`);
+    }
+</script>
