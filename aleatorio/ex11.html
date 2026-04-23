@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="avaliar()">
+            Avaliar
+        </button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+    function avaliar() {
+        let nota = (Math.random() * 6)
+            .toFixed(1)
+
+        if (nota <= 0.5) {
+            id_resultado.innerHTML = `Muito Triste 😭​`;
+        }
+        else if (nota <= 1.5) {
+            id_resultado.innerHTML = `Meio Triste 🥺`;
+        }
+        else if (nota <= 3.5) {
+            id_resultado.innerHTML = `Neutro ​😟​`;
+        }
+        else if (nota <= 4.5) {
+            id_resultado.innerHTML = `Feliz ☺️​`;
+        }
+        else if (nota > 4.5) {
+            id_resultado.innerHTML = `Muito Feliz​​😁​`;
+        }
+        else {
+            id_resultado.innerHTML = `Digite um número válido​`;
+        }    
+    }
+</script>
+
+</html>

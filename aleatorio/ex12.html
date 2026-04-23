@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="avaliar()">
+            Avaliar
+        </button>
+    </div>
+    <br>
+    <br>
+    <div>
+        <button onclick="verificar()">
+            Verificar Média
+        </button>
+    </div>
+    <hr>
+    <div id="id_resultado">
+
+    </div>
+    <br>
+    <br>
+    <div id="id_resultado2">
+
+    </div>
+</body>
+
+<script>
+
+    lista = [];
+    function avaliar() {
+        let nota = parseFloat((Math.random() * 6).toFixed(1));
+
+        lista.push(nota);
+
+        if (nota <= 0.5) {
+            id_resultado.innerHTML = `${nota} Muito Triste 😭​`;
+        }
+        else if (nota <= 1.5) {
+            id_resultado.innerHTML = `${nota} Meio Triste 🥺`;
+        }
+        else if (nota <= 3.5) {
+            id_resultado.innerHTML = `${nota} Neutro ​😟​`;
+        }
+        else if (nota <= 4.5) {
+            id_resultado.innerHTML = `${nota} Feliz ☺️​`;
+        }
+        else if (nota > 4.5) {
+            id_resultado.innerHTML = `${nota} Muito Feliz​​😁​`;
+        }
+        else {
+            id_resultado.innerHTML = `${nota} Digite um número válido​`;
+        }
+    }
+
+    function verificar() {
+
+        let media = 0;
+
+        if (lista.length != 0) {
+
+
+            for (let i = 0; i < lista.length; i++) {
+                media += lista[i];
+
+            }
+            media /= lista.length
+
+            id_resultado2.innerHTML = `Média de todas as notas: ${media.toFixed(1)}`;
+        }
+    }
+</script>
+
+</html>

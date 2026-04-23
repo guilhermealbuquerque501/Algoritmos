@@ -8,40 +8,57 @@
 </head>
 
 <body>
-    <div>
-        <button onclick="gerar_dado1()">
-
-        </button>
-    </div>
-    <div id="id_resultado">
-
-    </div>
-    <div>
-        <button onclick="gerar_dado2()">
-
-        </button>
-    </div>
-    <div>
-        <button onclick="comparar()">
-
-        </button>
-    </div>
+    <button onclick="gerar_dado1()">
+        Dado do Jogador 1
+    </button>
+    <br>
+    <br>
+    <div id="id_resultado"></div>
+    <br>
+    <button onclick="gerar_dado2()">
+        Dado do Jogador 2
+    </button>
+    <br>
+    <br>
     <div id="id_resultado2">
+
+    </div>
+    <br>
+    <button onclick="comparar()">
+        Comparar Resultados
+    </button>
+    <br>
+    <br>
+    <div id="id_resultado3">
 
     </div>
 </body>
 
 <script>
+    let dado1
+    let dado2
     function gerar_dado1() {
-        
+        dado1 = Math.floor(Math.random() * 6) + 1
+
+        id_resultado.innerHTML = `O número foi ${dado1}`;
     }
 
     function gerar_dado2() {
-        
+        dado2 = Math.floor(Math.random() * 6) + 1
+
+        id_resultado2.innerHTML = `O número foi ${dado2}`;
     }
 
     function comparar() {
-        
+        if (dado1 > dado2) {
+            id_resultado3.innerHTML = `O Jogador 1 venceu!`;
+        }
+        else if (dado2 > dado1) {
+            id_resultado3.innerHTML = `O Jogador 2 venceu!`;
+        }
+        else {
+            id_resultado3.innerHTML = `Empate`;
+        }
     }
 </script>
 

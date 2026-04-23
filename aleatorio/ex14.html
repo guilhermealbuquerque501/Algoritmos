@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="sortear()"">
+            Sortear Temperatura
+        </button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+    function sortear() {
+        let dia_mes = Math.floor(Math.random() * 31) + 1;
+
+        if (dia_mes < 8) {
+            id_resultado.innerHTML = `<img src="./images/Lua nova.jpg" alt="" class="img">`;
+        }
+        else if (dia_mes < 16) {
+            id_resultado.innerHTML = `<img src="./images/Lua Cheia.jpg" alt="" class="img">`;
+        }
+        else if (dia_mes < 22) {
+            id_resultado.innerHTML = `<img src="./images/Lua minguante.jpg" alt="" class="img">`;
+        }
+        else if (dia_mes < 31) {
+            id_resultado.innerHTML = `<img src="./images/lua crescente.jpg" alt="" class="img">`;
+        }
+    }
+</script>
+
+<style>
+    .img {
+        width: 500px;
+        height: 500px;
+    }
+</style>
+
+</html>

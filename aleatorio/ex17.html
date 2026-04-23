@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="ipt_nome">Digite seu nome</label>
+        <input type="text" id="ipt_nome">
+
+        <br><br>
+        <hr>
+
+        <label for="ipt_numero">Digite um número de 1 a 100</label>
+        <input type="text" id="ipt_numero">
+
+        <label for="ipt_numero2">Digite o segundo número de 1 a 100</label>
+        <input type="text" id="ipt_numero2">
+
+        <label for="ipt_numero3">Digite o terceiro número de 1 a 100</label>
+        <input type="text" id="ipt_numero3">
+
+        <button onclick="sortear()">
+            Sortear
+        </button>
+    </div>
+
+    <br><br>
+    <hr>
+
+    <div id="id_resultado"></div>
+</body>
+
+<script>
+    let contador = 0;
+
+    function sortear() {
+        let numero_user = Number(ipt_numero.value);
+        let numero_user2 = Number(ipt_numero2.value);
+        let numero_user3 = Number(ipt_numero3.value);
+        let nome = ipt_nome.value;
+        let num_sorte;
+        let numero_sorteado = Math.floor(Math.random() * 100) + 1;
+
+        if (
+            numero_user <= 100 && numero_user >= 1 &&
+            numero_user2 <= 100 && numero_user2 >= 1 &&
+            numero_user3 <= 100 && numero_user3 >= 1
+        ) {
+            contador++;
+
+            if (
+                numero_user == numero_sorteado ||
+                numero_user2 == numero_sorteado ||
+                numero_user3 == numero_sorteado
+            ) {
+                if (numero_user == numero_sorteado) num_sorte = numero_user;
+                if (numero_user2 == numero_sorteado) num_sorte = numero_user2;
+                if (numero_user3 == numero_sorteado) num_sorte = numero_user3;
+
+                id_resultado.innerHTML = `Parabéns, ${nome} o seu número da sorte ${num_sorte} foi sorteado após X sorteios!`;
+            } else {
+                id_resultado.innerHTML = `ainda não foi sorteado`;
+            }
+        } else {
+            alert(`Digite um número válido de 1 a 100`);
+        }
+
+        console.log(numero_sorteado);
+        
+    }
+</script>
+
+</html>

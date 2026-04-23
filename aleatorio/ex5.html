@@ -47,43 +47,43 @@
             if (jokenpo2 < 2) {
                 contador1++
             }
-            id_resultado.innerHTML = `<img src="./papel.png" alt="">`
+            id_resultado.innerHTML = `<img src="./images/papel.png" alt="">`
         }
         else if (jokenpo < 2) {
             if (jokenpo2 < 3) {
                 contador1++
             }
-           id_resultado.innerHTML = `<img src="./pedra.png" alt="">` 
+           id_resultado.innerHTML = `<img src="./images/pedra.png" alt="">` 
         }
         else if (jokenpo < 3) {
             if (jokenpo2 < 1) {
                 contador1++
             }
 
-            id_resultado.innerHTML = `<img src="./tesoura.png" alt="">` 
+            id_resultado.innerHTML = `<img src="./images/tesoura.png" alt="">` 
         }
 
         if (jokenpo2 < 1) {
             if (jokenpo < 2) {
                 contador2++
             }
-            id_resultado2.innerHTML = `<img src="./papel.png" alt="">`
+            id_resultado2.innerHTML = `<img src="./images/papel.png" alt="">`
         }
         else if (jokenpo2 < 2) {
             if (jokenpo < 3) {
                 contador2++
             }
-           id_resultado2.innerHTML = `<img src="./pedra.png" alt="">` 
+           id_resultado2.innerHTML = `<img src="./images/pedra.png" alt="">` 
         }
         else if (jokenpo2 < 3) {
             if (jokenpo < 1) {
                 contador2++
             }
 
-            id_resultado2.innerHTML = `<img src="./tesoura.png" alt="">` 
+            id_resultado2.innerHTML = `<img src="./images/tesoura.png" alt="">` 
         }
 
-        id_resultado3.innerHTML +=  `<br><br><br>As vitorias do primeiro foi ${contador1} e do segundo ${contador2}<br> <br>`;
+        id_resultado3.innerHTML =  `<br><br><br>As vitorias do primeiro foi ${contador1} e do segundo ${contador2}<br> <br>`;
     }
 </script>
 

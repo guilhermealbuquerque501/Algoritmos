@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="sortear()">
+            Sortear Temperatura
+        </button>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div id="id_resultado">
+
+    </div>
+</body>
+
+<script>
+
+    let num_par = 0;
+    let num_impar = 0;
+    function sortear() {
+        let num_sorteado = Math.floor(Math.random() * 22) + (-30);
+
+
+
+        if ((num_sorteado % 2) == 0) {
+            num_par++
+        }
+        else {
+            num_impar++
+        }
+
+        id_resultado.innerHTML = `Número que foi sorteado ${num_sorteado} 
+        <br><br>
+         pares: ${num_par} 
+        <br><br>
+        ímpares: ${num_impar}`;
+    }
+</script>
+
+</html>
