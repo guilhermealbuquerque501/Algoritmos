@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div>
+		<button onclick="add(5)">
+			adicionar 5
+		</button>
+		<button onclick="add(1)">
+			adicionar 1
+		</button>
+		<button onclick="add(2)">
+			adicionar 2
+		</button>
+		<button onclick="add(3)">
+			adicionar 3
+		</button>
+		<button onclick="add(7)">
+			adicionar 7
+		</button>
+	</div>
+	<div id="id_resultado">
+
+	</div>
+
+</body>
+
+<script>
+	
+	let num = 0
+	function add(num_add) {
+		console.log(`O que é num_add: ${num_add}`);
+		
+		num += num_add;
+		id_resultado.innerHTML = `*** O valor é ${num}`;
+	}
+		
+	// function add(num_add = 500) {
+	// 	console.log(`O que é num_add: ${num_add}`);
+		
+	// 	num += num_add;
+	// 	id_resultado.innerHTML = `*** O valor é ${num}`;
+	// }
+</script>
+
+</html>
