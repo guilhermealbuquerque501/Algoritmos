@@ -1,0 +1,210 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Desafio Musical</title>
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <label for="">Digite seu titulo</label>
+                <input type="text" id="ipt_titulo" placeholder="titulo">
+                <br>
+                <br>
+                <label for="">Digite sua banda</label>
+                <input type="text" id="ipt_banda" placeholder="banda">
+                <br>
+                <br>
+                <label for="">Digite sua duração</label>
+                <input type="text" id="ipt_duracao" placeholder="duração">
+                <br>
+                <br>
+                <label for="">Digite o ano de lancamento</label>
+                <input type="text" id="ipt_anoLancamento" placeholder="lancamento">
+                <br>
+                <br>
+                <label for="">Digite sua avaliaçao</label>
+                <input type="text" id="ipt_avaliacao" placeholder="avaliaçao">
+                <br>
+                <br>
+                <label for="">Digite os integrantes</label>
+                <input type="text" id="ipt_integrantes" placeholder="integrantes">
+            </div>
+            <br>
+            <br>
+            <hr>
+            <div>
+                <br>
+                <br>
+                <br>
+                <button onclick="adicionarMusica()">Adicionar uma nova música à playlist</button>
+                <br>
+                <br>
+                <button onclick="listarMusicas(playlist)">Listar todas as músicas</button>
+                <br>
+                <br>
+                <label for="">Remover pelo titulo</label>
+                <input type="text" id="ipt_remover">
+                <button onclick="removerMusica(playlist, ipt_remover.value)">Remover uma música pelo título </button>
+                <br>
+                <br>
+                <label for="">Digite a musica que voce quer atualizar data</label>
+                <input type="text" id="ipt_atualizarData">
+                <label for="">Digite a data que quer atualizar</label>
+                <input type="text" id="ipt_data">
+                <button onclick="atualizarAnoLancamento(playlist,ipt_atualizarData.value, ipt_data.value)">Atualizar o ano
+                    de
+                    lançamento de uma música pelo título</button>
+                <br>
+                <br>
+                <label for="">Digite o titulo que quer calcular a media</label>
+                <input type="text" id="ipt_media">
+                <button onclick="mediaAvaliacoes(playlist, ipt_media.value)">Calcular a média das avaliações de uma
+                    música</button>
+                <br>
+                <br>
+                <input type="text" id="ipt_integrante_buscar">
+                <button onclick="buscarBandaPorIntegrante(playlist, ipt_integrante_buscar.value)">Descobrir em qual banda
+                    está determinado integrante</button>
+            </div>
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="id_resultado">
+
+        </div>
+    </body>
+
+<script>
+
+    let playlist = [];
+
+    function adicionarMusica() {
+
+        let titulo = ipt_titulo.value;
+        let banda = ipt_banda.value;
+        let duracao = Number(ipt_duracao.value);
+        let anoLancamento = Number(ipt_anoLancamento.value);
+
+        // avaliações separadas por vírgula
+        let avaliacoes = ipt_avaliacao.value.split(",");
+
+        // transforma em número
+        for (let i = 0; i < avaliacoes.length; i++) {
+            avaliacoes[i] = Number(avaliacoes[i].trim());
+        }
+
+        // integrantes separados por vírgula
+        let integrantes = ipt_integrantes.value.split(",");
+
+        // remove espaços
+        for (let i = 0; i < integrantes.length; i++) {
+            integrantes[i] = integrantes[i].trim();
+        }
+
+        let musica = {
+            titulo: titulo,
+            banda: banda,
+            duracao: duracao,
+            anoLancamento: anoLancamento,
+            avaliacoes: avaliacoes,
+            integrantes: integrantes
+        };
+
+        playlist.push(musica);
+
+        id_resultado.innerHTML = "Música adicionada com sucesso!";
+    }
+
+    function listarMusicas(lista) {
+
+        id_resultado.innerHTML = "";
+
+        for (let i = 0; i < lista.length; i++) {
+
+            id_resultado.innerHTML += `
+                Título: ${lista[i].titulo} <br>
+                Banda: ${lista[i].banda} <br>
+                Duração: ${lista[i].duracao} minutos <br>
+                Ano: ${lista[i].anoLancamento} <br>
+                Avaliações: ${lista[i].avaliacoes} <br>
+                Integrantes: ${lista[i].integrantes} 
+                <br><br>
+            `;
+        }
+    }
+
+    function removerMusica(lista, titulo) {
+
+        for (let i = 0; i < lista.length; i++) {
+
+            if (lista[i].titulo == titulo) {
+
+                lista.splice(i, 1);
+
+                id_resultado.innerHTML = "Música removida com sucesso!";
+            }
+        }
+    }
+
+    function atualizarAnoLancamento(lista, titulo, novoAno) {
+
+        for (let i = 0; i < lista.length; i++) {
+
+            if (lista[i].titulo == titulo) {
+
+                lista[i].anoLancamento = Number(novoAno);
+
+                id_resultado.innerHTML = "Ano atualizado com sucesso!";
+            }
+        }
+    }
+
+    function mediaAvaliacoes(lista, titulo) {
+
+        let soma = 0;
+
+        for (let i = 0; i < lista.length; i++) {
+
+            if (lista[i].titulo == titulo) {
+
+                for (let j = 0; j < lista[i].avaliacoes.length; j++) {
+
+                    soma += lista[i].avaliacoes[j];
+                }
+
+                let media = soma / lista[i].avaliacoes.length;
+
+                id_resultado.innerHTML = `
+                    A média das avaliações é ${media.toFixed(2)}
+                `;
+            }
+        }
+    }
+
+    function buscarBandaPorIntegrante(lista, integrante) {
+
+        for (let i = 0; i < lista.length; i++) {
+
+            for (let j = 0; j < lista[i].integrantes.length; j++) {
+
+                if (lista[i].integrantes[j] == integrante) {
+
+                    id_resultado.innerHTML = `
+                        ${integrante} faz parte da banda ${lista[i].banda}
+                    `;
+                }
+            }
+        }
+    }
+
+</script>
+
+    </html>
